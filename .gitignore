@@ -1,5 +1,10 @@
 .DS_Store
 
+# Next.js
+.next/
+node_modules/
+next-env.d.ts
+
 # Images
 images/avatars/
 images/captchas/
