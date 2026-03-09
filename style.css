@@ -1,0 +1,809 @@
+/* ============================================================
+   MMR Universal Ventures — style.css
+   Stone Background · Golden Accents · Premium Design
+   ============================================================ */
+
+/* ---------- CSS Variables ---------- */
+:root {
+  --gold:         #D4AF37;
+  --gold-light:   #F0D060;
+  --gold-dark:    #A07D20;
+  --gold-glow:    rgba(212, 175, 55, 0.35);
+  --stone-dark:   #1a2020;
+  --stone-mid:    #232b2b;
+  --stone-light:  #2e3a3a;
+  --stone-accent: #3a4545;
+  --text-light:   #f0ece0;
+  --text-muted:   #b0a88c;
+  --white:        #ffffff;
+  --shadow:       rgba(0,0,0,0.7);
+
+  /* Stone texture generated via CSS layered gradients */
+  --stone-texture:
+    /* Random crack lines */
+    repeating-linear-gradient(
+      87deg,
+      transparent 0px, transparent 22px,
+      rgba(255,255,255,0.012) 22px, rgba(255,255,255,0.012) 23px
+    ),
+    repeating-linear-gradient(
+      173deg,
+      transparent 0px, transparent 35px,
+      rgba(255,255,255,0.008) 35px, rgba(255,255,255,0.008) 36px
+    ),
+    /* Slate grain layers */
+    repeating-linear-gradient(
+      45deg,
+      transparent 0px, transparent 4px,
+      rgba(0,0,0,0.04) 4px, rgba(0,0,0,0.04) 5px
+    ),
+    repeating-linear-gradient(
+      135deg,
+      transparent 0px, transparent 6px,
+      rgba(255,255,255,0.015) 6px, rgba(255,255,255,0.015) 7px
+    ),
+    /* Base stone color gradient */
+    linear-gradient(
+      160deg,
+      #1e2a2a 0%,
+      #22302e 15%,
+      #1a2828 30%,
+      #1d2c2a 45%,
+      #203030 55%,
+      #1a2626 70%,
+      #1e2c2a 85%,
+      #1a2424 100%
+    );
+}
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: var(--stone-dark);
+  color: var(--text-light);
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ---------- Shared Stone Overlay Utilities ---------- */
+
+/* Dark stone (hero, services, footer) */
+.stone-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--stone-texture);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Lighter stone (about, contact) — slightly brighter */
+.stone-overlay-light {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      87deg,
+      transparent 0px, transparent 22px,
+      rgba(255,255,255,0.015) 22px, rgba(255,255,255,0.015) 23px
+    ),
+    repeating-linear-gradient(
+      173deg,
+      transparent 0px, transparent 35px,
+      rgba(255,255,255,0.010) 35px, rgba(255,255,255,0.010) 36px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      transparent 0px, transparent 4px,
+      rgba(0,0,0,0.03) 4px, rgba(0,0,0,0.03) 5px
+    ),
+    repeating-linear-gradient(
+      135deg,
+      transparent 0px, transparent 6px,
+      rgba(255,255,255,0.020) 6px, rgba(255,255,255,0.020) 7px
+    ),
+    linear-gradient(
+      160deg,
+      #243030 0%,
+      #2a3a38 20%,
+      #243434 40%,
+      #263636 60%,
+      #243232 80%,
+      #223030 100%
+    );
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ---------- Container ---------- */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Section Base ---------- */
+.section {
+  position: relative;
+  padding: 90px 0;
+  overflow: hidden;
+}
+
+/* ---------- Gold Helper ---------- */
+.gold {
+  color: var(--gold);
+}
+
+/* ---------- Section Title ---------- */
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-align: center;
+  color: var(--text-light);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+  margin-bottom: 12px;
+}
+
+/* ---------- Gold Divider ---------- */
+.divider-gold {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 50px;
+  box-shadow: 0 0 10px var(--gold-glow);
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 40px;
+  background: rgba(20, 28, 28, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+}
+
+.brand-tagline {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 36px;
+}
+
+.nav-links a {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+  text-shadow: 0 0 10px var(--gold-glow);
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Extra vignette on top of stone for depth */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.55) 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 24px;
+  margin-top: 80px;
+}
+
+/* ---------- Logo ---------- */
+.logo-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.logo-letters {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  line-height: 1;
+}
+
+.letter-m,
+.letter-r {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(5rem, 14vw, 11rem);
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--gold);
+  text-stroke: 2px var(--gold);
+  letter-spacing: -4px;
+  text-shadow:
+    0 0 30px var(--gold-glow),
+    0 0 60px rgba(212, 175, 55, 0.2),
+    inset 0 0 20px rgba(212, 175, 55, 0.1);
+  filter: drop-shadow(0 0 18px rgba(212,175,55,0.5));
+  transition: filter 0.3s;
+}
+
+.letter-m:hover,
+.letter-r:hover {
+  filter: drop-shadow(0 0 28px rgba(212,175,55,0.8));
+}
+
+.logo-icon-wrap {
+  width: clamp(60px, 12vw, 110px);
+  height: clamp(60px, 12vw, 110px);
+  margin: 0 -8px;
+  filter: drop-shadow(0 0 12px rgba(212,175,55,0.6));
+}
+
+.goat-icon {
+  width: 100%;
+  height: 100%;
+}
+
+.logo-company {
+  margin-top: 8px;
+  text-align: center;
+}
+
+.logo-company h1 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.1rem, 3.5vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: var(--text-light);
+  text-shadow: 0 2px 15px rgba(0,0,0,0.7), 0 0 30px var(--gold-glow);
+}
+
+.logo-subtitle {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.65rem, 1.5vw, 0.85rem);
+  letter-spacing: 6px;
+  color: var(--gold);
+  text-shadow: 0 0 8px var(--gold-glow);
+  margin-top: 2px;
+}
+
+/* ---------- Hero Tagline ---------- */
+.hero-tagline {
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(0.75rem, 1.8vw, 1rem);
+  letter-spacing: 5px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+/* ---------- CTA Button ---------- */
+.cta-btn {
+  display: inline-block;
+  padding: 14px 40px;
+  border: 1px solid var(--gold);
+  border-radius: 2px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--gold);
+  background: transparent;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 14px var(--gold-glow);
+}
+
+.cta-btn:hover {
+  background: var(--gold);
+  color: var(--stone-dark);
+  box-shadow: 0 0 30px var(--gold-glow), 0 4px 20px rgba(212,175,55,0.4);
+}
+
+/* ============================================================
+   ABOUT SECTION
+   ============================================================ */
+.about-section {
+  background: var(--stone-mid);
+}
+
+.about-text {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 760px;
+  margin: 0 auto 56px;
+  text-align: center;
+  line-height: 1.9;
+}
+
+/* ---------- Pillars ---------- */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 28px;
+}
+
+.pillar {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: 4px;
+  padding: 36px 28px;
+  text-align: center;
+  transition: border-color 0.3s, background 0.3s, transform 0.3s;
+}
+
+.pillar:hover {
+  border-color: var(--gold);
+  background: rgba(212,175,55,0.05);
+  transform: translateY(-4px);
+}
+
+.pillar-icon {
+  font-family: 'Cinzel', serif;
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--gold);
+  text-shadow: 0 0 16px var(--gold-glow);
+  margin-bottom: 14px;
+}
+
+.pillar h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+
+.pillar p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   SERVICES SECTION
+   ============================================================ */
+.services-section {
+  background: var(--stone-dark);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+}
+
+.service-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(212,175,55,0.15);
+  border-top: 2px solid var(--gold);
+  border-radius: 4px;
+  padding: 36px 28px;
+  transition: border-color 0.3s, background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+  border-color: var(--gold);
+  background: rgba(212,175,55,0.05);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.4), 0 0 20px var(--gold-glow);
+}
+
+.service-icon {
+  font-size: 1.4rem;
+  color: var(--gold);
+  margin-bottom: 16px;
+  text-shadow: 0 0 10px var(--gold-glow);
+}
+
+.service-card h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   CONTACT SECTION
+   ============================================================ */
+.contact-section {
+  background: var(--stone-mid);
+}
+
+.contact-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* ---------- Contact Card ---------- */
+.contact-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(212,175,55,0.25);
+  border-radius: 6px;
+  padding: 40px 36px;
+  box-shadow: 0 4px 40px rgba(0,0,0,0.4), inset 0 0 60px rgba(0,0,0,0.15);
+  /* subtle inner stone texture */
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--stone-texture);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.contact-logo-mini {
+  font-family: 'Cinzel', serif;
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--gold);
+  text-shadow: 0 0 20px var(--gold-glow), 0 0 40px rgba(212,175,55,0.2);
+  letter-spacing: 4px;
+  margin-bottom: 6px;
+}
+
+.contact-company {
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  color: var(--text-light);
+  margin-bottom: 30px;
+  font-weight: 600;
+  position: relative;
+}
+
+.contact-item {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 24px;
+  align-items: flex-start;
+  position: relative;
+}
+
+.contact-icon {
+  color: var(--gold);
+  font-size: 0.6rem;
+  margin-top: 6px;
+  flex-shrink: 0;
+  text-shadow: 0 0 8px var(--gold-glow);
+}
+
+.contact-label {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.contact-value {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.contact-value a {
+  transition: color 0.3s;
+}
+
+.contact-value a:hover {
+  color: var(--gold-light);
+}
+
+/* ===== GOLDEN PHONE NUMBER ===== */
+.phone-gold a {
+  color: var(--gold) !important;
+  font-family: 'Cinzel', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow:
+    0 0 10px var(--gold-glow),
+    0 0 20px rgba(212, 175, 55, 0.3),
+    0 2px 4px rgba(0,0,0,0.4);
+  transition: text-shadow 0.3s, color 0.3s;
+}
+
+.phone-gold a:hover {
+  color: var(--gold-light) !important;
+  text-shadow:
+    0 0 18px rgba(212, 175, 55, 0.7),
+    0 0 36px rgba(212, 175, 55, 0.4),
+    0 2px 4px rgba(0,0,0,0.4);
+}
+
+/* ---------- Contact Form ---------- */
+.contact-form-wrap {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(212,175,55,0.15);
+  border-radius: 6px;
+  padding: 40px 36px;
+}
+
+.form-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  color: var(--gold);
+  margin-bottom: 28px;
+  text-shadow: 0 0 10px var(--gold-glow);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: 3px;
+  padding: 12px 16px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(176, 168, 140, 0.4);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 10px var(--gold-glow);
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-dark));
+  background-size: 200% 100%;
+  background-position: right;
+  border: none;
+  border-radius: 3px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--stone-dark);
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-position 0.4s, box-shadow 0.3s;
+  box-shadow: 0 4px 18px rgba(212,175,55,0.3);
+}
+
+.submit-btn:hover {
+  background-position: left;
+  box-shadow: 0 4px 28px rgba(212,175,55,0.5);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  position: relative;
+  padding: 56px 0 36px;
+  overflow: hidden;
+  border-top: 1px solid rgba(212,175,55,0.2);
+}
+
+.footer-inner {
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--gold);
+  letter-spacing: 5px;
+  text-shadow: 0 0 20px var(--gold-glow);
+  margin-bottom: 8px;
+}
+
+.footer-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: var(--text-light);
+  margin-bottom: 6px;
+}
+
+.footer-tagline {
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  text-shadow: 0 0 8px var(--gold-glow);
+}
+
+.footer-addr {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+
+.footer-copy {
+  font-size: 0.72rem;
+  color: rgba(176,168,140,0.45);
+  letter-spacing: 1px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding-top: 20px;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 860px) {
+  .contact-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    padding: 14px 20px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+
+  .letter-m,
+  .letter-r {
+    font-size: clamp(3.5rem, 18vw, 6rem);
+  }
+
+  .logo-icon-wrap {
+    width: clamp(45px, 14vw, 70px);
+    height: clamp(45px, 14vw, 70px);
+  }
+
+  .pillar,
+  .service-card,
+  .contact-card,
+  .contact-form-wrap {
+    padding: 28px 20px;
+  }
+
+  .section {
+    padding: 64px 0;
+  }
+}
+
+/* ============================================================
+   SCROLL ANIMATION (subtle fade-in)
+   ============================================================ */
+.pillar,
+.service-card,
+.contact-card,
+.contact-form-wrap {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeUp 0.7s ease forwards;
+}
+
+.pillar:nth-child(1) { animation-delay: 0.1s; }
+.pillar:nth-child(2) { animation-delay: 0.2s; }
+.pillar:nth-child(3) { animation-delay: 0.3s; }
+
+.service-card:nth-child(1) { animation-delay: 0.1s; }
+.service-card:nth-child(2) { animation-delay: 0.2s; }
+.service-card:nth-child(3) { animation-delay: 0.3s; }
+.service-card:nth-child(4) { animation-delay: 0.4s; }
+
+.contact-card  { animation-delay: 0.15s; }
+.contact-form-wrap { animation-delay: 0.3s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   GOLD SHIMMER — hero logo letters
+   ============================================================ */
+@keyframes goldShimmer {
+  0%   { filter: drop-shadow(0 0 14px rgba(212,175,55,0.45)); }
+  50%  { filter: drop-shadow(0 0 28px rgba(212,175,55,0.75)); }
+  100% { filter: drop-shadow(0 0 14px rgba(212,175,55,0.45)); }
+}
+
+.letter-m,
+.letter-r {
+  animation: goldShimmer 3s ease-in-out infinite;
+}
