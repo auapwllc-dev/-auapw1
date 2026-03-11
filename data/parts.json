@@ -1,0 +1,220 @@
+[
+  {
+    "id": "AP-001",
+    "partNumber": "AP-001",
+    "name": "Oil Filter",
+    "description": "High-performance oil filter with anti-drainback valve. Provides superior filtration to keep your engine clean and running smoothly.",
+    "category": "Engine",
+    "brand": "ProFilter",
+    "price": 12.99,
+    "imageUrl": "",
+    "fitment": [
+      { "make": "Toyota", "model": "Camry", "yearFrom": 2018, "yearTo": 2024 },
+      { "make": "Toyota", "model": "Corolla", "yearFrom": 2016, "yearTo": 2024 },
+      { "make": "Honda", "model": "Accord", "yearFrom": 2017, "yearTo": 2024 }
+    ]
+  },
+  {
+    "id": "AP-002",
+    "partNumber": "AP-002",
+    "name": "Air Filter",
+    "description": "Premium air filter engineered for maximum airflow and engine protection. Washable and reusable.",
+    "category": "Engine",
+    "brand": "AirMax",
+    "price": 24.99,
+    "imageUrl": "",
+    "fitment": [
+      { "make": "Toyota", "model": "Camry", "yearFrom": 2018, "yearTo": 2024 },
+      { "make": "Ford", "model": "Mustang", "yearFrom": 2015, "yearTo": 2023 },
+      { "make": "Chevrolet", "model": "Malibu", "yearFrom": 2016, "yearTo": 2022 }
+    ]
+  },
+  {
+    "id": "AP-003",
+    "partNumber": "AP-003",
+    "name": "Brake Pads (Front)",
+    "description": "Ceramic front brake pads with low dust formula. Includes shims and hardware kit. Excellent stopping power and minimal noise.",
+    "category": "Brakes",
+    "brand": "StopTech",
+    "price": 49.99,
+    "imageUrl": "",
+    "fitment": [
+      { "make": "Honda", "model": "Civic", "yearFrom": 2016, "yearTo": 2024 },
+      { "make": "Honda", "model": "Accord", "yearFrom": 2015, "yearTo": 2024 },
+      { "make": "Toyota", "model": "Corolla", "yearFrom": 2014, "yearTo": 2024 }
+    ]
+  },
+  {
+    "id": "AP-004",
+    "partNumber": "AP-004",
+    "name": "Brake Rotors (Front Pair)",
+    "description": "Slotted and cross-drilled front brake rotors for improved heat dissipation and wet-weather performance. Sold as a pair.",
+    "category": "Brakes",
+    "brand": "PowerStop",
+    "price": 89.99,
+    "imageUrl": "",
+    "fitment": [
+      { "make": "Honda", "model": "Civic", "yearFrom": 2016, "yearTo": 2024 },
+      { "make": "Toyota", "model": "Camry", "yearFrom": 2018, "yearTo": 2024 }
+    ]
+  },
+  {
+    "id": "AP-005",
+    "partNumber": "AP-005",
+    "name": "Spark Plugs (Set of 4)",
+    "description": "Iridium tip spark plugs for superior ignition performance and long service life. Set of 4.",
+    "category": "Ignition",
+    "brand": "NGK",
+    "price": 34.99,
+    "imageUrl": "",
+    "fitment": [
+      { "make": "Toyota", "model": "Camry", "yearFrom": 2018, "yearTo": 2024 },
+      { "make": "Toyota", "model": "Corolla", "yearFrom": 2014, "yearTo": 2024 },
+      { "make": "Honda", "model": "Accord", "yearFrom": 2018, "yearTo": 2024 }
+    ]
+  },
+  {
+    "id": "AP-006",
+    "partNumber": "AP-006",
+    "name": "Alternator",
+    "description": "Remanufactured alternator with 100% new internal components. 3-year/36,000-mile warranty. Plug-and-play installation.",
+    "category": "Electrical",
+    "brand": "Remy",
+    "price": 159.99,
+    "imageUrl": "",
+    "fitment": [
+      { "make": "Ford", "model": "F-150", "yearFrom": 2015, "yearTo": 2020 },
+      { "make": "Chevrolet", "model": "Silverado 1500", "yearFrom": 2014, "yearTo": 2019 }
+    ]
+  },
+  {
+    "id": "AP-007",
+    "partNumber": "AP-007",
+    "name": "Starter Motor",
+    "description": "High-torque starter motor for reliable cold-weather starting. Pre-engaged design for quiet operation.",
+    "category": "Electrical",
+    "brand": "Bosch",
+    "price": 129.99,
+    "imageUrl": "",
+    "fitment": [
+      { "make": "Ford", "model": "Mustang", "yearFrom": 2015, "yearTo": 2023 },
+      { "make": "Chevrolet", "model": "Camaro", "yearFrom": 2016, "yearTo": 2024 }
+    ]
+  },
+  {
+    "id": "AP-008",
+    "partNumber": "AP-008",
+    "name": "Radiator",
+    "description": "All-aluminum radiator with 33% improved cooling capacity over stock. Direct-fit replacement with all mounting hardware included.",
+    "category": "Cooling",
+    "brand": "Spectra",
+    "price": 119.99,
+    "imageUrl": "",
+    "fitment": [
+      { "make": "Honda", "model": "Civic", "yearFrom": 2012, "yearTo": 2015 },
+      { "make": "Toyota", "model": "Corolla", "yearFrom": 2014, "yearTo": 2019 }
+    ]
+  },
+  {
+    "id": "AP-009",
+    "partNumber": "AP-009",
+    "name": "Thermostat",
+    "description": "OEM-quality thermostat for precise engine temperature control. Includes gasket.",
+    "category": "Cooling",
+    "brand": "Gates",
+    "price": 14.99,
+    "imageUrl": "",
+    "fitment": [
+      { "make": "Toyota", "model": "Camry", "yearFrom": 2012, "yearTo": 2024 },
+      { "make": "Toyota", "model": "Corolla", "yearFrom": 2009, "yearTo": 2024 },
+      { "make": "Honda", "model": "Accord", "yearFrom": 2013, "yearTo": 2024 },
+      { "make": "Honda", "model": "Civic", "yearFrom": 2012, "yearTo": 2024 }
+    ]
+  },
+  {
+    "id": "AP-010",
+    "partNumber": "AP-010",
+    "name": "CV Axle Shaft",
+    "description": "Complete CV axle assembly with inner and outer CV joints pre-packed with grease. Ready to install.",
+    "category": "Drivetrain",
+    "brand": "GSP",
+    "price": 74.99,
+    "imageUrl": "",
+    "fitment": [
+      { "make": "Honda", "model": "Accord", "yearFrom": 2013, "yearTo": 2017 },
+      { "make": "Honda", "model": "Civic", "yearFrom": 2012, "yearTo": 2015 }
+    ]
+  },
+  {
+    "id": "AP-011",
+    "partNumber": "AP-011",
+    "name": "Shock Absorber (Rear)",
+    "description": "Gas-charged rear shock absorber for a smooth, controlled ride. Direct fit with no modifications required.",
+    "category": "Suspension",
+    "brand": "Monroe",
+    "price": 59.99,
+    "imageUrl": "",
+    "fitment": [
+      { "make": "Toyota", "model": "Camry", "yearFrom": 2012, "yearTo": 2017 },
+      { "make": "Ford", "model": "Fusion", "yearFrom": 2013, "yearTo": 2020 },
+      { "make": "Chevrolet", "model": "Malibu", "yearFrom": 2013, "yearTo": 2016 }
+    ]
+  },
+  {
+    "id": "AP-012",
+    "partNumber": "AP-012",
+    "name": "Strut Assembly (Front)",
+    "description": "Complete front strut assembly with spring and mount pre-installed. Zero alignment changes required.",
+    "category": "Suspension",
+    "brand": "KYB",
+    "price": 139.99,
+    "imageUrl": "",
+    "fitment": [
+      { "make": "Toyota", "model": "Corolla", "yearFrom": 2014, "yearTo": 2019 },
+      { "make": "Honda", "model": "Civic", "yearFrom": 2016, "yearTo": 2021 }
+    ]
+  },
+  {
+    "id": "AP-013",
+    "partNumber": "AP-013",
+    "name": "Fuel Pump",
+    "description": "In-tank fuel pump module assembly. OEM-equivalent flow rate for consistent fuel delivery under all conditions.",
+    "category": "Fuel System",
+    "brand": "Delphi",
+    "price": 109.99,
+    "imageUrl": "",
+    "fitment": [
+      { "make": "Chevrolet", "model": "Silverado 1500", "yearFrom": 2014, "yearTo": 2018 },
+      { "make": "GMC", "model": "Sierra 1500", "yearFrom": 2014, "yearTo": 2018 }
+    ]
+  },
+  {
+    "id": "AP-014",
+    "partNumber": "AP-014",
+    "name": "Fuel Injector",
+    "description": "Multi-port fuel injector with micro-machined spray holes for precise atomization and improved combustion.",
+    "category": "Fuel System",
+    "brand": "Bosch",
+    "price": 39.99,
+    "imageUrl": "",
+    "fitment": [
+      { "make": "Toyota", "model": "Camry", "yearFrom": 2012, "yearTo": 2017 },
+      { "make": "Toyota", "model": "Corolla", "yearFrom": 2009, "yearTo": 2019 }
+    ]
+  },
+  {
+    "id": "AP-015",
+    "partNumber": "AP-015",
+    "name": "Serpentine Belt",
+    "description": "EPDM serpentine belt engineered to last 4x longer than standard neoprene belts. Drives alternator, power steering, and AC compressor.",
+    "category": "Engine",
+    "brand": "Gates",
+    "price": 22.99,
+    "imageUrl": "",
+    "fitment": [
+      { "make": "Ford", "model": "F-150", "yearFrom": 2011, "yearTo": 2020 },
+      { "make": "Ford", "model": "Mustang", "yearFrom": 2015, "yearTo": 2023 },
+      { "make": "Chevrolet", "model": "Silverado 1500", "yearFrom": 2014, "yearTo": 2019 }
+    ]
+  }
+]
