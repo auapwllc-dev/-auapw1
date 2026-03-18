@@ -3,4 +3,4 @@ const nextConfig = {
   reactCompiler: true,
 };
 
-export default nextConfig;
+module.exports = nextConfig;
