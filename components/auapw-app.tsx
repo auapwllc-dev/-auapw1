@@ -1322,7 +1322,7 @@ export default function App() {
           </div>
         )}
         {logoSrc&&(
-          <div style={{background:"#1a3a1a",borderBottom:"2px solid #4ade80",padding:"8px 24px",display:"flex",alignItems:"center",justifyContent:"space-between",gap:16,zIndex:9999}}>
+          <div style={{background:"transparent",borderBottom:"none",padding:"8px 24px",display:"flex",alignItems:"center",justifyContent:"space-between",gap:16,zIndex:9999}}>
             <div style={{display:"flex",alignItems:"center",gap:12}}>
               <img src={logoSrc} alt="logo" style={{width:40,height:40,objectFit:"contain",borderRadius:4,background:"#000",padding:2}}/>
             </div>
