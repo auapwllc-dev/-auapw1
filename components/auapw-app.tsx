@@ -23,6 +23,52 @@ const ADDRESS = "107 Myrtle Ave, Woodbine, NJ 08270";
 
 const MAKES = ["Acura","Alfa Romeo","Audi","BMW","Buick","Cadillac","Chevrolet","Chrysler","Dodge","Fiat","Ford","GMC","Genesis","Honda","Hummer","Hyundai","Infiniti","Isuzu","Jaguar","Jeep","Kia","Land Rover","Lexus","Lincoln","Mazda","Mercedes-Benz","Mercury","Mini","Mitsubishi","Nissan","Oldsmobile","Plymouth","Pontiac","Porsche","Ram","Saturn","Scion","Subaru","Suzuki","Tesla","Toyota","Volkswagen","Volvo"];
 
+const BRAND_LOGOS = {
+  "Acura": "🔷",
+  "Alfa Romeo": "🅰️",
+  "Audi": "⬜",
+  "BMW": "⭕",
+  "Buick": "🛡️",
+  "Cadillac": "💎",
+  "Chevrolet": "🔶",
+  "Chrysler": "⭐",
+  "Dodge": "🔞",
+  "Fiat": "🔴",
+  "Ford": "🔵",
+  "GMC": "🔷",
+  "Genesis": "🔹",
+  "Honda": "H",
+  "Hummer": "H",
+  "Hyundai": "H",
+  "Infiniti": "∞",
+  "Isuzu": "🔶",
+  "Jaguar": "🐆",
+  "Jeep": "🅙",
+  "Kia": "K",
+  "Land Rover": "🚙",
+  "Lexus": "L",
+  "Lincoln": "⭐",
+  "Mazda": "M",
+  "Mercedes-Benz": "⭐",
+  "Mercury": "🌟",
+  "Mini": "⭕",
+  "Mitsubishi": "💎",
+  "Nissan": "Z",
+  "Oldsmobile": "🔴",
+  "Plymouth": "🔷",
+  "Pontiac": "⬇️",
+  "Porsche": "🏁",
+  "Ram": "🐏",
+  "Saturn": "🪐",
+  "Scion": "S",
+  "Subaru": "⭐",
+  "Suzuki": "S",
+  "Tesla": "T",
+  "Toyota": "🔹",
+  "Volkswagen": "V",
+  "Volvo": "🛡️"
+};
+
 const STATES = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
 
 const MODELS = {
@@ -433,7 +479,7 @@ function BrandLogos({goTo,tok}){
             const c=BCOLORS[b]||"#1a1d28";
             return(
               <div key={b} onClick={()=>goTo("brand",b)} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:5,padding:6,borderRadius:7,cursor:"pointer",transition:"all .3s",border:"1px solid "+tok.bdd,background:tok.card}} onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-4px)";e.currentTarget.style.borderColor="rgba(232,232,232,.22)";}} onMouseLeave={e=>{e.currentTarget.style.transform="none";e.currentTarget.style.borderColor=tok.bdd;}}>
-                <div style={{width:"100%",height:42,borderRadius:5,background:"linear-gradient(135deg,"+c+","+c+"88)",display:"flex",alignItems:"center",justifyContent:"center"}}><span style={{fontSize:10,fontWeight:900,color:"rgba(255,255,255,.9)",textShadow:"0 2px 6px rgba(0,0,0,.6)"}}>{gi(b)}</span></div>
+                <div style={{width:"100%",height:42,borderRadius:5,background:"linear-gradient(135deg,"+c+","+c+"88)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:24}}>{BRAND_LOGOS[b]||gi(b)}</div>
                 <span style={{fontSize:7.5,fontWeight:700,color:tok.dim,fontFamily:MH,textAlign:"center",letterSpacing:".08em",textTransform:"uppercase",lineHeight:1.3}}>{b}</span>
               </div>
             );
@@ -446,8 +492,18 @@ function BrandLogos({goTo,tok}){
 
 // ── PAGE BANNER ──
 function PageBanner({subtitle,tok}){
+  const luxuryBrands = ["Mercedes-Benz","BMW","Audi","Porsche","Jaguar","Land Rover","Lexus","Cadillac","Infiniti","Genesis"];
   return(
-    <div style={{position:"relative",overflow:"hidden",background:"linear-gradient(180deg,#060810,#0a0c15 50%,#060810)",borderBottom:"1px solid rgba(255,255,255,.06)",padding:"18px 24px"}}>
+    <div style={{position:"relative",overflow:"hidden",background:"linear-gradient(180deg,#060810,#0a0c15 50%,#060810)",borderBottom:"1px solid rgba(255,255,255,.06)"}}>
+      <div style={{padding:"12px 24px",display:"flex",alignItems:"center",gap:12,overflowX:"auto",maskImage:"linear-gradient(90deg,transparent,black 10%,black 90%,transparent)",webkitMaskImage:"linear-gradient(90deg,transparent,black 10%,black 90%,transparent)"}}>
+        {luxuryBrands.map(b=>(
+          <div key={b} style={{display:"flex",alignItems:"center",gap:6,padding:"6px 12px",background:"rgba(255,255,255,.05)",borderRadius:6,whiteSpace:"nowrap",fontSize:13,fontWeight:700,color:"rgba(255,255,255,.7)",fontFamily:"DM Mono"}}>
+            <span style={{fontSize:16}}>{BRAND_LOGOS[b]||"⭐"}</span>
+            <span>{b}</span>
+          </div>
+        ))}
+      </div>
+      <div style={{padding:"18px 24px",borderBottom:"1px solid rgba(255,255,255,.06)",borderTop:"1px solid rgba(255,255,255,.06)"}}>
       <div style={{position:"absolute",top:0,left:0,right:0,height:2,background:"linear-gradient(90deg,transparent,rgba(255,255,255,.55) 50%,transparent)"}}/>
       <div style={{maxWidth:1400,margin:"0 auto",display:"flex",alignItems:"center",justifyContent:"space-between",gap:24,flexWrap:"wrap"}}>
         <div style={{display:"flex",alignItems:"center",gap:14}}>
@@ -465,6 +521,7 @@ function PageBanner({subtitle,tok}){
           {[{I:Shield,l:"6-Mo Warranty"},{I:Zap,l:"24hr Response"},{I:Truck,l:"Free Shipping"}].map(function(x){return(
             <div key={x.l} style={{display:"flex",alignItems:"center",gap:6}}><DLed sm/><span style={{fontSize:"clamp(7px,.85vw,9px)",fontWeight:700,letterSpacing:".1em",textTransform:"uppercase",color:"rgba(200,212,232,.7)",fontFamily:MH}}>{x.l}</span></div>
           );})}</div>
+      </div>
       </div>
     </div>
   );
@@ -933,8 +990,8 @@ function MakesPage({goTo,tok}){
             const c=BCOLORS[b]||"#1a1d28";
             return(
               <div key={b} onClick={()=>goTo("brand",b)} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:5,padding:8,borderRadius:7,cursor:"pointer",transition:"all .3s",border:"1px solid "+tok.bdd,background:tok.card}} onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-4px)";e.currentTarget.style.borderColor="rgba(232,232,232,.22)";}} onMouseLeave={e=>{e.currentTarget.style.transform="none";e.currentTarget.style.borderColor=tok.bdd;}}>
-                <div style={{width:"100%",height:44,borderRadius:5,background:"linear-gradient(135deg,"+c+","+c+"88)",display:"flex",alignItems:"center",justifyContent:"center"}}>
-                  <span style={{fontSize:12,fontWeight:900,color:"rgba(255,255,255,.9)",textShadow:"0 2px 6px rgba(0,0,0,.6)"}}>{b.slice(0,3).toUpperCase()}</span>
+                <div style={{width:"100%",height:44,borderRadius:5,background:"linear-gradient(135deg,"+c+","+c+"88)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:22}}>
+                  <span>{BRAND_LOGOS[b]||b.slice(0,3).toUpperCase()}</span>
                 </div>
                 <span style={{fontSize:7.5,fontWeight:700,color:tok.dim,fontFamily:MH,textAlign:"center",letterSpacing:".08em",textTransform:"uppercase"}}>{b}</span>
               </div>
