@@ -1325,7 +1325,6 @@ export default function App() {
           <div style={{background:"#1a3a1a",borderBottom:"2px solid #4ade80",padding:"8px 24px",display:"flex",alignItems:"center",justifyContent:"space-between",gap:16,zIndex:9999}}>
             <div style={{display:"flex",alignItems:"center",gap:12}}>
               <img src={logoSrc} alt="logo" style={{width:40,height:40,objectFit:"contain",borderRadius:4,background:"#000",padding:2}}/>
-              <span style={{fontSize:13,fontWeight:700,color:"#4ade80",fontFamily:MH,letterSpacing:".08em"}}>YOUR LOGO IS APPLIED EVERYWHERE</span>
             </div>
             <label style={{display:"inline-flex",alignItems:"center",gap:6,padding:"7px 16px",background:"rgba(255,255,255,.1)",border:"1px solid rgba(255,255,255,.3)",borderRadius:5,cursor:"pointer",fontSize:10,fontWeight:700,color:"#fff",fontFamily:MH,letterSpacing:".1em",whiteSpace:"nowrap"}}>
               Change Logo <input type="file" accept="image/*" onChange={handleLogoFile} style={{display:"none"}}/>
