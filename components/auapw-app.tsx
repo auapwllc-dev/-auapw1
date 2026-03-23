@@ -1307,7 +1307,30 @@ export default function App() {
     <LogoCtx.Provider value={{logoSrc,setLogoSrc}}>
       <div className={"aw "+(theme==="light"?"lt":"dk")}>
         <style>{CSS}</style>
-
+        {/* LOGO UPLOAD BAR */}
+        {!logoSrc&&(
+          <div style={{background:"#e55000",padding:"0",position:"relative",zIndex:9999}}>
+            <label style={{display:"flex",alignItems:"center",justifyContent:"center",gap:16,padding:"14px 24px",cursor:"pointer",width:"100%"}}>
+              <span style={{fontSize:28}}>📸</span>
+              <div>
+                <div style={{fontSize:14,fontWeight:900,color:"#fff",fontFamily:MH,letterSpacing:".05em",lineHeight:1.2}}>CLICK HERE TO UPLOAD YOUR AUAPW LOGO</div>
+                <div style={{fontSize:10,color:"rgba(255,255,255,.8)",fontFamily:MH,marginTop:2}}>Select your PNG or JPG logo file and it will show everywhere instantly</div>
+              </div>
+              <div style={{padding:"10px 24px",background:"#fff",borderRadius:5,fontSize:12,fontWeight:900,color:"#e55000",fontFamily:MH,whiteSpace:"nowrap",flexShrink:0}}>UPLOAD LOGO</div>
+              <input type="file" accept="image/*" onChange={handleLogoFile} style={{display:"none"}}/>
+            </label>
+          </div>
+        )}
+        {logoSrc&&(
+          <div style={{background:"transparent",borderBottom:"none",padding:"8px 24px",display:"flex",alignItems:"center",justifyContent:"space-between",gap:16,zIndex:9999}}>
+            <div style={{display:"flex",alignItems:"center",gap:12}}>
+              <img src={logoSrc} alt="logo" style={{width:40,height:40,objectFit:"contain",borderRadius:4,background:"#000",padding:2}}/>
+            </div>
+            <label style={{display:"inline-flex",alignItems:"center",gap:6,padding:"7px 16px",background:"rgba(255,255,255,.1)",border:"1px solid rgba(255,255,255,.3)",borderRadius:5,cursor:"pointer",fontSize:10,fontWeight:700,color:"#fff",fontFamily:MH,letterSpacing:".1em",whiteSpace:"nowrap"}}>
+              Change Logo <input type="file" accept="image/*" onChange={handleLogoFile} style={{display:"none"}}/>
+            </label>
+          </div>
+        )}
         <Navbar page={page} goTo={goTo} tok={tok} theme={theme} toggle={toggle}/>
         <UrlBar page={page} pageData={pageData} tok={tok} theme={theme}/>
         <main>{renderPage()}</main>
