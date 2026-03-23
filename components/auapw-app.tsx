@@ -763,6 +763,26 @@ function HomePage({goTo,tok,theme}){
         </div>
       </div>
     </section>
+    {/* Brands Section */}
+    <section className="sec" style={{padding:"48px 24px",background:theme==="light"?"#f0f2f8":"linear-gradient(180deg,#04060d,#08090f)",borderTop:"1px solid "+tok.bdd}}>
+      <div style={{maxWidth:1280,margin:"0 auto"}}>
+        <SecHead label="Premium Brands" title="We Source All Major Automotive Brands" center tok={tok}/>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(120px,1fr))",gap:12,marginBottom:32}}>
+          {["Mercedes-Benz","BMW","Audi","Porsche","Jaguar","Land Rover","Lexus","Cadillac","Infiniti","Genesis","Tesla","Volkswagen","Volvo","Subaru","Honda","Toyota","Ford","Chevrolet"].map(brand=>{
+            const c=BCOLORS[brand]||"#1a1d28";
+            return(
+              <div key={brand} onClick={()=>goTo("brand",brand)} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:8,padding:14,borderRadius:8,cursor:"pointer",transition:"all .3s",border:"1px solid "+tok.bdd,background:tok.card}} onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-6px)";e.currentTarget.style.borderColor="rgba(232,232,232,.22)";e.currentTarget.style.boxShadow="0 12px 24px rgba(0,0,0,.3)";}} onMouseLeave={e=>{e.currentTarget.style.transform="none";e.currentTarget.style.borderColor=tok.bdd;e.currentTarget.style.boxShadow="none";}}>
+                <div style={{width:"100%",height:56,borderRadius:6,background:"linear-gradient(135deg,"+c+","+c+"99)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:28}} dangerouslySetInnerHTML={{__html:BRAND_LOGOS[brand]||'<text x="50" y="65" font-size="40" fill="white">'+(brand.slice(0,2).toUpperCase())+'</text>'}}></div>
+                <span style={{fontSize:10,fontWeight:700,color:tok.fg,fontFamily:MH,textAlign:"center",letterSpacing:".06em",textTransform:"uppercase",lineHeight:1.2}}>{brand}</span>
+              </div>
+            );
+          })}
+        </div>
+        <div style={{textAlign:"center",paddingTop:12}}>
+          <button className="btn-led" onClick={()=>goTo("makes")}>Browse All 42 Brands</button>
+        </div>
+      </div>
+    </section>
     <BrandLogos goTo={goTo} tok={tok}/>
   </>;
 }
