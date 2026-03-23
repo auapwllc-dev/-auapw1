@@ -748,24 +748,7 @@ function HomePage({goTo,tok,theme}){
         </div>
       </div>
     </section>
-    {/* Car Brands Showcase */}
-    <section className="sec" style={{padding:"64px 24px",background:theme==="light"?"linear-gradient(160deg,#e8eaf4,#f0f2f8)":"linear-gradient(160deg,#04060d,#08090f 40%,#0c0e18)",borderBottom:"1px solid "+tok.bdd}}>
-      <div style={{maxWidth:1280,margin:"0 auto"}}>
-        <SecHead label="Available Makes" title="50+ Car Brands" tok={tok}/>
-        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(90px,1fr))",gap:12}}>
-          {MAKES.map(function(b){const c=COLS[Math.floor(Math.random()*COLS.length)];return(
-            <div key={b} className="gc" style={{padding:16,cursor:"pointer",transition:"all .25s",textAlign:"center"}} onMouseEnter={e=>{e.currentTarget.style.borderColor="rgba(232,232,232,.22)";e.currentTarget.style.transform="translateY(-3px)";}} onMouseLeave={e=>{e.currentTarget.style.borderColor=tok.bdd;e.currentTarget.style.transform="none";}}>
-              <div style={{width:"100%",height:48,borderRadius:5,background:"linear-gradient(135deg,"+c+","+c+"88)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:22,marginBottom:8}} dangerouslySetInnerHTML={{__html:BRAND_LOGOS[b]||'<text x="50" y="65" font-size="32" fill="white">'+(b.slice(0,3).toUpperCase())+'</text>'}}></div>
-              <span style={{fontSize:8,fontWeight:700,color:tok.dim,fontFamily:MH,textAlign:"center",letterSpacing:".08em",textTransform:"uppercase",display:"block"}}>{b}</span>
-            </div>
-          );})}
-        </div>
-        <div style={{textAlign:"center",marginTop:32}}>
-          <button className="btn-led" onClick={()=>goTo("makes")}><Search size={12}/>View All Brands</button>
-        </div>
-      </div>
-    </section>
-    {/* Call to Action */}
+    {/* Reviews */}
     <section className="sec" style={{padding:"64px 24px",background:tok.bg,borderBottom:"1px solid "+tok.bdd}}>
       <div style={{maxWidth:1280,margin:"0 auto"}}>
         <SecHead label="Customer Reviews" title="What Clients Say" tok={tok}/>
