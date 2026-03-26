@@ -480,7 +480,9 @@ function BrandLogos({goTo,tok}){
             const c=BCOLORS[b]||"#1a1d28";
             return(
               <div key={b} onClick={()=>goTo("brand",b)} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:5,padding:6,borderRadius:7,cursor:"pointer",transition:"all .3s",border:"1px solid "+tok.bdd,background:tok.card}} onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-4px)";e.currentTarget.style.borderColor="rgba(232,232,232,.22)";}} onMouseLeave={e=>{e.currentTarget.style.transform="none";e.currentTarget.style.borderColor=tok.bdd;}}>
-                <div style={{width:"100%",height:42,borderRadius:5,background:"linear-gradient(135deg,"+c+","+c+"88)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:24}} dangerouslySetInnerHTML={{__html:BRAND_LOGOS[b]||'<svg viewBox="0 0 100 100"><text x="50" y="72" font-size="36" fill="white">'+(b.slice(0,3))+'</text></svg>'}}></div>
+                <div style={{width:"100%",height:42,borderRadius:5,background:"linear-gradient(135deg,"+c+","+c+"88)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:20,fontWeight:900,color:"white",fontFamily:"Arial"}}>
+                  {BRAND_LOGOS[b]?BRAND_LOGOS[b].match(/>(.*?)<\/text>/)?.[1]||b.slice(0,3).toUpperCase():b.slice(0,3).toUpperCase()}
+                </div>
                 <span style={{fontSize:7.5,fontWeight:700,color:tok.dim,fontFamily:MH,textAlign:"center",letterSpacing:".08em",textTransform:"uppercase",lineHeight:1.3}}>{b}</span>
               </div>
             );
@@ -499,7 +501,9 @@ function PageBanner({subtitle,tok}){
       <div style={{padding:"12px 24px",display:"flex",alignItems:"center",gap:12,overflowX:"auto",maskImage:"linear-gradient(90deg,transparent,black 10%,black 90%,transparent)",webkitMaskImage:"linear-gradient(90deg,transparent,black 10%,black 90%,transparent)"}}>
         {luxuryBrands.map(b=>(
           <div key={b} style={{display:"flex",alignItems:"center",gap:6,padding:"6px 12px",background:"rgba(255,255,255,.05)",borderRadius:6,whiteSpace:"nowrap",fontSize:13,fontWeight:700,color:"rgba(255,255,255,.7)",fontFamily:"DM Mono"}}>
-            <div style={{width:16,height:16,display:"flex",alignItems:"center",justifyContent:"center"}} dangerouslySetInnerHTML={{__html:BRAND_LOGOS[b]||'<svg viewBox="0 0 100 100"><circle r="50" cx="50" cy="50" fill="white"/></svg>'}}></div>
+            <div style={{width:16,height:16,display:"flex",alignItems:"center",justifyContent:"center",fontSize:12,fontWeight:900,color:"white",fontFamily:"Arial"}}>
+              {BRAND_LOGOS[b]?BRAND_LOGOS[b].match(/>(.*?)<\/text>/)?.[1]||b.slice(0,1).toUpperCase():b.slice(0,1).toUpperCase()}
+            </div>
             <span>{b}</span>
           </div>
         ))}
@@ -780,7 +784,9 @@ function HomePage({goTo,tok,theme}){
             const c=BCOLORS[brand]||"#1a1d28";
             return(
               <div key={brand} onClick={()=>goTo("brand",brand)} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:8,padding:14,borderRadius:8,cursor:"pointer",transition:"all .3s",border:"1px solid "+tok.bdd,background:tok.card}} onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-6px)";e.currentTarget.style.borderColor="rgba(232,232,232,.22)";e.currentTarget.style.boxShadow="0 12px 24px rgba(0,0,0,.3)";}} onMouseLeave={e=>{e.currentTarget.style.transform="none";e.currentTarget.style.borderColor=tok.bdd;e.currentTarget.style.boxShadow="none";}}>
-                <div style={{width:"100%",height:56,borderRadius:6,background:"linear-gradient(135deg,"+c+","+c+"99)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:28}} dangerouslySetInnerHTML={{__html:BRAND_LOGOS[brand]||'<svg viewBox="0 0 100 100"><text x="50" y="72" font-size="40" fill="white">'+(brand.slice(0,2))+'</text></svg>'}}></div>
+                <div style={{width:"100%",height:56,borderRadius:6,background:"linear-gradient(135deg,"+c+","+c+"99)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:24,fontWeight:900,color:"white",fontFamily:"Arial"}}>
+                  {BRAND_LOGOS[brand]?BRAND_LOGOS[brand].match(/>(.*?)<\/text>/)?.[1]||brand.slice(0,2).toUpperCase():brand.slice(0,2).toUpperCase()}
+                </div>
                 <span style={{fontSize:10,fontWeight:700,color:tok.fg,fontFamily:MH,textAlign:"center",letterSpacing:".06em",textTransform:"uppercase",lineHeight:1.2}}>{brand}</span>
               </div>
             );
