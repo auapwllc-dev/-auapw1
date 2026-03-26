@@ -23,56 +23,63 @@ const ADDRESS = "107 Myrtle Ave, Woodbine, NJ 08270";
 
 const MAKES = ["Acura","Alfa Romeo","Audi","BMW","Buick","Cadillac","Chevrolet","Chrysler","Dodge","Fiat","Ford","GMC","Genesis","Honda","Hummer","Hyundai","Infiniti","Isuzu","Jaguar","Jeep","Kia","Land Rover","Lexus","Lincoln","Mazda","Mercedes-Benz","Mercury","Mini","Mitsubishi","Nissan","Oldsmobile","Plymouth","Pontiac","Porsche","Ram","Saturn","Scion","Subaru","Suzuki","Tesla","Toyota","Volkswagen","Volvo"];
 
-const BRAND_LOGOS = {
-  "Acura": '<svg viewBox="0 0 100 100"><circle r="48" cx="50" cy="50" fill="none" stroke="white" stroke-width="2"/><path d="M40 45 L50 35 L60 45 M50 35 L50 65" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>',
-  "Alfa Romeo": '<svg viewBox="0 0 100 100"><circle r="45" cx="50" cy="50" fill="none" stroke="white" stroke-width="2"/><path d="M35 50 Q50 35 65 50 Q50 65 35 50" fill="white" opacity="0.8"/></svg>',
-  "Audi": '<svg viewBox="0 0 100 100"><circle cx="28" cy="50" r="10" fill="none" stroke="white" stroke-width="2"/><circle cx="50" cy="50" r="10" fill="none" stroke="white" stroke-width="2"/><circle cx="72" cy="50" r="10" fill="none" stroke="white" stroke-width="2"/></svg>',
-  "Bentley": '<svg viewBox="0 0 100 100"><path d="M50 20 L80 50 L70 80 L30 80 L20 50 Z" fill="none" stroke="white" stroke-width="2"/><circle cx="50" cy="50" r="8" fill="white"/></svg>',
-  "BMW": '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="white" stroke-width="2"/><line x1="50" y1="15" x2="50" y2="85" stroke="white" stroke-width="1.5"/><line x1="20" y1="50" x2="80" y2="50" stroke="white" stroke-width="1.5"/></svg>',
-  "Buick": '<svg viewBox="0 0 100 100"><rect x="25" y="30" width="50" height="40" fill="none" stroke="white" stroke-width="2" rx="3"/><circle cx="35" cy="45" r="4" fill="white"/><circle cx="50" cy="45" r="4" fill="white"/><circle cx="65" cy="45" r="4" fill="white"/></svg>',
-  "Cadillac": '<svg viewBox="0 0 100 100"><path d="M50 20 L70 80 L60 80 L55 60 L45 60 L40 80 L30 80 Z" fill="none" stroke="white" stroke-width="2" stroke-linejoin="round"/></svg>',
-  "Chevrolet": '<svg viewBox="0 0 100 100"><path d="M35 40 L50 25 L65 40 L60 60 L40 60 Z" fill="white" opacity="0.7"/><path d="M35 60 L50 75 L65 60" fill="none" stroke="white" stroke-width="2"/></svg>',
-  "Chrysler": '<svg viewBox="0 0 100 100"><path d="M50 25 L65 50 L60 75 L40 75 L35 50 Z" fill="none" stroke="white" stroke-width="2" stroke-linejoin="round"/></svg>',
-  "Dodge": '<svg viewBox="0 0 100 100"><polygon points="30,40 50,20 70,40 75,60 50,80 25,60" fill="none" stroke="white" stroke-width="2"/></svg>',
-  "Ferrari": '<svg viewBox="0 0 100 100"><path d="M30 35 Q50 25 70 35 L75 55 Q50 70 25 55 Z" fill="none" stroke="white" stroke-width="2.5"/><path d="M45 45 L55 45" stroke="white" stroke-width="1.5"/></svg>',
-  "Fiat": '<svg viewBox="0 0 100 100"><rect x="28" y="28" width="44" height="44" fill="none" stroke="white" stroke-width="2"/><line x1="50" y1="28" x2="50" y2="72" stroke="white" stroke-width="1"/></svg>',
-  "Ford": '<svg viewBox="0 0 100 100"><path d="M30 45 Q50 30 70 45 L68 65 Q50 75 32 65 Z" fill="none" stroke="white" stroke-width="2.5"/></svg>',
-  "Genesis": '<svg viewBox="0 0 100 100"><path d="M50 30 L65 55 L50 80 L35 55 Z" fill="none" stroke="white" stroke-width="2" stroke-linejoin="round"/></svg>',
-  "GMC": '<svg viewBox="0 0 100 100"><rect x="28" y="35" width="44" height="30" fill="none" stroke="white" stroke-width="2"/><line x1="35" y1="35" x2="35" y2="65" stroke="white" stroke-width="1.5"/><line x1="50" y1="35" x2="50" y2="65" stroke="white" stroke-width="1.5"/><line x1="65" y1="35" x2="65" y2="65" stroke="white" stroke-width="1.5"/></svg>',
-  "Honda": '<svg viewBox="0 0 100 100"><path d="M40 40 L60 40 L62 60 L38 60 Z" fill="none" stroke="white" stroke-width="2"/><circle cx="45" cy="65" r="4" fill="white"/><circle cx="55" cy="65" r="4" fill="white"/></svg>',
-  "Hummer": '<svg viewBox="0 0 100 100"><rect x="25" y="30" width="50" height="40" fill="none" stroke="white" stroke-width="2.5" rx="2"/><line x1="35" y1="30" x2="35" y2="70" stroke="white" stroke-width="1.5"/><line x1="50" y1="30" x2="50" y2="70" stroke="white" stroke-width="1.5"/><line x1="65" y1="30" x2="65" y2="70" stroke="white" stroke-width="1.5"/></svg>',
-  "Hyundai": '<svg viewBox="0 0 100 100"><path d="M35 45 L50 30 L65 45 L60 65 L40 65 Z" fill="none" stroke="white" stroke-width="2" stroke-linejoin="round"/></svg>',
-  "Infiniti": '<svg viewBox="0 0 100 100"><path d="M25 50 Q40 40 50 50 Q40 60 25 50 M75 50 Q60 40 50 50 Q60 60 75 50" fill="none" stroke="white" stroke-width="2"/></svg>',
-  "Isuzu": '<svg viewBox="0 0 100 100"><path d="M40 35 L50 25 L60 35 L55 60 L45 60 Z" fill="none" stroke="white" stroke-width="2"/></svg>',
-  "Jaguar": '<svg viewBox="0 0 100 100"><path d="M50 25 L70 50 L65 75 L35 75 L30 50 Z" fill="none" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><circle cx="50" cy="50" r="5" fill="white"/></svg>',
-  "Jeep": '<svg viewBox="0 0 100 100"><circle cx="35" cy="45" r="6" fill="white"/><circle cx="65" cy="45" r="6" fill="white"/><line x1="35" y1="51" x2="35" y2="65" stroke="white" stroke-width="2"/><line x1="65" y1="51" x2="65" y2="65" stroke="white" stroke-width="2"/><rect x="30" y="30" width="40" height="20" fill="none" stroke="white" stroke-width="2"/></svg>',
-  "Kia": '<svg viewBox="0 0 100 100"><path d="M35 50 Q50 35 65 50 Q50 65 35 50" fill="none" stroke="white" stroke-width="2.5"/><circle cx="50" cy="50" r="4" fill="white"/></svg>',
-  "Lamborghini": '<svg viewBox="0 0 100 100"><polygon points="50,20 75,45 70,80 30,80 25,45" fill="none" stroke="white" stroke-width="2.5" stroke-linejoin="round"/></svg>',
-  "Land Rover": '<svg viewBox="0 0 100 100"><path d="M30 50 L50 30 L70 50 L65 70 L35 70 Z" fill="none" stroke="white" stroke-width="2" stroke-linejoin="round"/></svg>',
-  "Lexus": '<svg viewBox="0 0 100 100"><path d="M35 40 L50 30 L65 40 L65 70 L35 70 Z" fill="none" stroke="white" stroke-width="2"/><path d="M45 35 L55 35 M45 55 L55 55" stroke="white" stroke-width="1.5"/></svg>',
-  "Lincoln": '<svg viewBox="0 0 100 100"><line x1="25" y1="50" x2="75" y2="50" stroke="white" stroke-width="3"/><circle cx="50" cy="50" r="6" fill="white"/></svg>',
-  "Maserati": '<svg viewBox="0 0 100 100"><path d="M50 25 L70 65 L30 65 Z" fill="none" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><line x1="50" y1="25" x2="50" y2="60" stroke="white" stroke-width="1.5"/></svg>',
-  "Mazda": '<svg viewBox="0 0 100 100"><path d="M35 50 L50 35 L65 50 L60 70 L40 70 Z" fill="none" stroke="white" stroke-width="2"/></svg>',
-  "Mercedes-Benz": '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="white" stroke-width="2"/><circle cx="50" cy="50" r="30" fill="none" stroke="white" stroke-width="1"/><line x1="50" y1="20" x2="50" y2="80" stroke="white" stroke-width="1.5"/><line x1="20" y1="50" x2="80" y2="50" stroke="white" stroke-width="1.5"/></svg>',
-  "Mercury": '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="35" fill="none" stroke="white" stroke-width="2"/><circle cx="50" cy="50" r="20" fill="none" stroke="white" stroke-width="1.5"/><path d="M50 30 L50 50" stroke="white" stroke-width="2"/></svg>',
-  "Mini": '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="35" fill="none" stroke="white" stroke-width="2"/><circle cx="50" cy="50" r="20" fill="none" stroke="white" stroke-width="1.5"/><circle cx="50" cy="50" r="8" fill="white"/></svg>',
-  "Mitsubishi": '<svg viewBox="0 0 100 100"><path d="M50 25 L70 60 L50 95 M50 25 L30 60 M50 95 L30 60" fill="none" stroke="white" stroke-width="2.5" stroke-linejoin="round"/></svg>',
-  "Nissan": '<svg viewBox="0 0 100 100"><rect x="28" y="35" width="44" height="30" fill="white" opacity="0.8"/><circle cx="50" cy="50" r="8" fill="none" stroke="white" stroke-width="1.5"/></svg>',
-  "Oldsmobile": '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="none" stroke="white" stroke-width="2"/><path d="M50 20 L65 50 L50 80 L35 50 Z" fill="white" opacity="0.6"/></svg>',
-  "Plymouth": '<svg viewBox="0 0 100 100"><polygon points="50,25 70,65 30,65" fill="none" stroke="white" stroke-width="2.5" stroke-linejoin="round"/></svg>',
-  "Pontiac": '<svg viewBox="0 0 100 100"><rect x="25" y="35" width="50" height="30" fill="none" stroke="white" stroke-width="2"/><line x1="35" y1="35" x2="35" y2="65" stroke="white" stroke-width="2"/><line x1="50" y1="35" x2="50" y2="65" stroke="white" stroke-width="2"/><line x1="65" y1="35" x2="65" y2="65" stroke="white" stroke-width="2"/></svg>',
-  "Porsche": '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="white" stroke-width="2"/><path d="M50 30 Q65 45 50 70 Q35 45 50 30" fill="white" opacity="0.7"/></svg>',
-  "Ram": '<svg viewBox="0 0 100 100"><path d="M50 25 L65 50 L60 75 L40 75 L35 50 Z" fill="none" stroke="white" stroke-width="2.5"/><path d="M45 45 L55 45" stroke="white" stroke-width="1.5"/></svg>',
-  "Rolls-Royce": '<svg viewBox="0 0 100 100"><rect x="25" y="30" width="50" height="40" fill="none" stroke="white" stroke-width="2.5" rx="2"/><circle cx="50" cy="50" r="12" fill="none" stroke="white" stroke-width="1.5"/><path d="M45 50 L55 50 M50 45 L50 55" stroke="white" stroke-width="1"/></svg>',
-  "Saturn": '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="none" stroke="white" stroke-width="1.5"/><ellipse cx="50" cy="50" rx="40" ry="12" fill="none" stroke="white" stroke-width="2"/><circle cx="50" cy="50" r="8" fill="white"/></svg>',
-  "Scion": '<svg viewBox="0 0 100 100"><path d="M35 45 L50 30 L65 45 L65 70 L35 70 Z" fill="none" stroke="white" stroke-width="2"/><circle cx="50" cy="50" r="5" fill="white" opacity="0.8"/></svg>',
-  "Subaru": '<svg viewBox="0 0 100 100"><circle cx="30" cy="35" r="7" fill="white"/><circle cx="50" cy="25" r="7" fill="white"/><circle cx="70" cy="35" r="7" fill="white"/><circle cx="40" cy="55" r="7" fill="white"/><circle cx="60" cy="55" r="7" fill="white"/></svg>',
-  "Suzuki": '<svg viewBox="0 0 100 100"><path d="M35 40 L50 25 L65 40 L65 70 L35 70 Z" fill="none" stroke="white" stroke-width="2"/><circle cx="50" cy="50" r="6" fill="white"/></svg>',
-  "Tesla": '<svg viewBox="0 0 100 100"><path d="M50 25 L65 45 L60 55 L55 75 L45 75 L40 55 L35 45 Z" fill="none" stroke="white" stroke-width="2.5" stroke-linejoin="round"/></svg>',
-  "Toyota": '<svg viewBox="0 0 100 100"><ellipse cx="50" cy="45" rx="15" ry="18" fill="none" stroke="white" stroke-width="2"/><ellipse cx="50" cy="60" rx="18" ry="12" fill="none" stroke="white" stroke-width="2"/></svg>',
-  "Volkswagen": '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="none" stroke="white" stroke-width="2"/><path d="M50 25 L50 75 M30 50 L70 50" stroke="white" stroke-width="1.5"/></svg>',
-  "Volvo": '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="none" stroke="white" stroke-width="2"/><path d="M50 20 L60 50 L50 80" fill="none" stroke="white" stroke-width="2"/><circle cx="50" cy="50" r="6" fill="white"/></svg>'
+const BRAND_LOGO_URLS={
+  "Acura":"https://www.carlogos.org/car-logos/acura-logo-2024.png",
+  "Alfa Romeo":"https://www.carlogos.org/car-logos/alfa-romeo-logo.png",
+  "Audi":"https://www.carlogos.org/car-logos/audi-logo.png",
+  "BMW":"https://www.carlogos.org/car-logos/bmw-logo.png",
+  "Bentley":"https://www.carlogos.org/car-logos/bentley-logo.png",
+  "Buick":"https://www.carlogos.org/car-logos/buick-logo.png",
+  "Cadillac":"https://www.carlogos.org/car-logos/cadillac-logo.png",
+  "Chevrolet":"https://www.carlogos.org/car-logos/chevrolet-logo.png",
+  "Chrysler":"https://www.carlogos.org/car-logos/chrysler-logo.png",
+  "Dodge":"https://www.carlogos.org/car-logos/dodge-logo.png",
+  "Ferrari":"https://www.carlogos.org/car-logos/ferrari-logo.png",
+  "Fiat":"https://www.carlogos.org/car-logos/fiat-logo.png",
+  "Ford":"https://www.carlogos.org/car-logos/ford-logo.png",
+  "GMC":"https://www.carlogos.org/car-logos/gmc-logo.png",
+  "Genesis":"https://www.carlogos.org/car-logos/genesis-logo.png",
+  "Honda":"https://www.carlogos.org/car-logos/honda-logo.png",
+  "Hummer":"https://www.carlogos.org/car-logos/hummer-logo.png",
+  "Hyundai":"https://www.carlogos.org/car-logos/hyundai-logo.png",
+  "Infiniti":"https://www.carlogos.org/car-logos/infiniti-logo.png",
+  "Isuzu":"https://www.carlogos.org/car-logos/isuzu-logo.png",
+  "Jaguar":"https://www.carlogos.org/car-logos/jaguar-logo.png",
+  "Jeep":"https://www.carlogos.org/car-logos/jeep-logo.png",
+  "Kia":"https://www.carlogos.org/car-logos/kia-logo.png",
+  "Lamborghini":"https://www.carlogos.org/car-logos/lamborghini-logo.png",
+  "Land Rover":"https://www.carlogos.org/car-logos/land-rover-logo.png",
+  "Lexus":"https://www.carlogos.org/car-logos/lexus-logo.png",
+  "Lincoln":"https://www.carlogos.org/car-logos/lincoln-logo.png",
+  "Maserati":"https://www.carlogos.org/car-logos/maserati-logo.png",
+  "Mazda":"https://www.carlogos.org/car-logos/mazda-logo.png",
+  "Mercedes-Benz":"https://www.carlogos.org/car-logos/mercedes-benz-logo.png",
+  "Mercury":"https://www.carlogos.org/car-logos/mercury-logo.png",
+  "Mini":"https://www.carlogos.org/car-logos/mini-logo.png",
+  "Mitsubishi":"https://www.carlogos.org/car-logos/mitsubishi-logo.png",
+  "Nissan":"https://www.carlogos.org/car-logos/nissan-logo.png",
+  "Oldsmobile":"https://www.carlogos.org/car-logos/oldsmobile-logo.png",
+  "Plymouth":"https://www.carlogos.org/car-logos/plymouth-logo.png",
+  "Pontiac":"https://www.carlogos.org/car-logos/pontiac-logo.png",
+  "Porsche":"https://www.carlogos.org/car-logos/porsche-logo.png",
+  "Ram":"https://www.carlogos.org/car-logos/ram-logo.png",
+  "Rolls-Royce":"https://www.carlogos.org/car-logos/rolls-royce-logo.png",
+  "Saturn":"https://www.carlogos.org/car-logos/saturn-logo.png",
+  "Scion":"https://www.carlogos.org/car-logos/scion-logo.png",
+  "Subaru":"https://www.carlogos.org/car-logos/subaru-logo.png",
+  "Suzuki":"https://www.carlogos.org/car-logos/suzuki-logo.png",
+  "Tesla":"https://www.carlogos.org/car-logos/tesla-logo.png",
+  "Toyota":"https://www.carlogos.org/car-logos/toyota-logo.png",
+  "Volkswagen":"https://www.carlogos.org/car-logos/volkswagen-logo.png",
+  "Volvo":"https://www.carlogos.org/car-logos/volvo-logo.png"
 };
+
+function BrandLogoImg({brand,size=40}){
+  const [err,setErr]=React.useState(false);
+  const url=BRAND_LOGO_URLS[brand];
+  if(!url||err) return <span style={{fontSize:Math.max(size*0.35,10),fontWeight:900,color:"white",fontFamily:"Arial",letterSpacing:1}}>{brand.slice(0,3).toUpperCase()}</span>;
+  return <img src={url} alt={brand+" logo"} style={{width:size,height:size,objectFit:"contain"}} onError={()=>setErr(true)} crossOrigin="anonymous" loading="lazy"/>;
+}
 
 const STATES = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
 
@@ -484,7 +491,9 @@ function BrandLogos({goTo,tok}){
             const c=BCOLORS[b]||"#1a1d28";
             return(
               <div key={b} onClick={()=>goTo("brand",b)} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:5,padding:6,borderRadius:7,cursor:"pointer",transition:"all .3s",border:"1px solid "+tok.bdd,background:tok.card}} onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-4px)";e.currentTarget.style.borderColor="rgba(232,232,232,.22)";}} onMouseLeave={e=>{e.currentTarget.style.transform="none";e.currentTarget.style.borderColor=tok.bdd;}}>
-                <div style={{width:"100%",height:42,borderRadius:5,background:"linear-gradient(135deg,"+c+","+c+"88)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:18,fontWeight:900,color:"white",fontFamily:"Arial, sans-serif"}} dangerouslySetInnerHTML={{__html:BRAND_LOGOS[b]||'<svg viewBox="0 0 100 100"><text x="50" y="72" font-size="40" fill="white" text-anchor="middle" font-family="Arial">'+b.slice(0,3).toUpperCase()+'</text></svg>'}}></div>
+                <div style={{width:"100%",height:42,borderRadius:5,background:"linear-gradient(135deg,"+c+","+c+"88)",display:"flex",alignItems:"center",justifyContent:"center"}}>
+                  <BrandLogoImg brand={b} size={30}/>
+                </div>
                 <span style={{fontSize:7.5,fontWeight:700,color:tok.dim,fontFamily:MH,textAlign:"center",letterSpacing:".08em",textTransform:"uppercase",lineHeight:1.3}}>{b}</span>
               </div>
             );
@@ -503,7 +512,9 @@ function PageBanner({subtitle,tok}){
       <div style={{padding:"12px 24px",display:"flex",alignItems:"center",gap:12,overflowX:"auto",maskImage:"linear-gradient(90deg,transparent,black 10%,black 90%,transparent)",webkitMaskImage:"linear-gradient(90deg,transparent,black 10%,black 90%,transparent)"}}>
         {luxuryBrands.map(b=>(
           <div key={b} style={{display:"flex",alignItems:"center",gap:6,padding:"6px 12px",background:"rgba(255,255,255,.05)",borderRadius:6,whiteSpace:"nowrap",fontSize:13,fontWeight:700,color:"rgba(255,255,255,.7)",fontFamily:"DM Mono"}}>
-            <div style={{width:16,height:16,display:"flex",alignItems:"center",justifyContent:"center",fontSize:10,fontWeight:900,color:"white",fontFamily:"Arial, sans-serif"}} dangerouslySetInnerHTML={{__html:BRAND_LOGOS[b]||'<svg viewBox="0 0 100 100"><circle r="50" cx="50" cy="50" fill="white"/></svg>'}}></div>
+            <div style={{width:16,height:16,display:"flex",alignItems:"center",justifyContent:"center"}}>
+              <BrandLogoImg brand={b} size={14}/>
+            </div>
             <span>{b}</span>
           </div>
         ))}
@@ -784,7 +795,9 @@ function HomePage({goTo,tok,theme}){
             const c=BCOLORS[brand]||"#1a1d28";
             return(
               <div key={brand} onClick={()=>goTo("brand",brand)} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:8,padding:14,borderRadius:8,cursor:"pointer",transition:"all .3s",border:"1px solid "+tok.bdd,background:tok.card}} onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-6px)";e.currentTarget.style.borderColor="rgba(232,232,232,.22)";e.currentTarget.style.boxShadow="0 12px 24px rgba(0,0,0,.3)";}} onMouseLeave={e=>{e.currentTarget.style.transform="none";e.currentTarget.style.borderColor=tok.bdd;e.currentTarget.style.boxShadow="none";}}>
-                <div style={{width:"100%",height:56,borderRadius:6,background:"linear-gradient(135deg,"+c+","+c+"99)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:22,fontWeight:900,color:"white",fontFamily:"Arial, sans-serif"}} dangerouslySetInnerHTML={{__html:BRAND_LOGOS[brand]||'<svg viewBox="0 0 100 100"><text x="50" y="72" font-size="48" fill="white" text-anchor="middle" font-family="Arial">'+brand.slice(0,2).toUpperCase()+'</text></svg>'}}></div>
+                <div style={{width:"100%",height:56,borderRadius:6,background:"linear-gradient(135deg,"+c+","+c+"99)",display:"flex",alignItems:"center",justifyContent:"center"}}>
+                  <BrandLogoImg brand={brand} size={38}/>
+                </div>
                 <span style={{fontSize:10,fontWeight:700,color:tok.fg,fontFamily:MH,textAlign:"center",letterSpacing:".06em",textTransform:"uppercase",lineHeight:1.2}}>{brand}</span>
               </div>
             );
@@ -1022,7 +1035,9 @@ function MakesPage({goTo,tok}){
             const c=BCOLORS[b]||"#1a1d28";
             return(
               <div key={b} onClick={()=>goTo("brand",b)} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:5,padding:8,borderRadius:7,cursor:"pointer",transition:"all .3s",border:"1px solid "+tok.bdd,background:tok.card}} onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-4px)";e.currentTarget.style.borderColor="rgba(232,232,232,.22)";}} onMouseLeave={e=>{e.currentTarget.style.transform="none";e.currentTarget.style.borderColor=tok.bdd;}}>
-                <div style={{width:"100%",height:44,borderRadius:5,background:"linear-gradient(135deg,"+c+","+c+"88)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:22}} dangerouslySetInnerHTML={{__html:BRAND_LOGOS[b]||'<svg viewBox="0 0 100 100"><text x="50" y="72" font-size="32" fill="white">'+(b.slice(0,3))+'</text></svg>'}}></div>
+                <div style={{width:"100%",height:44,borderRadius:5,background:"linear-gradient(135deg,"+c+","+c+"88)",display:"flex",alignItems:"center",justifyContent:"center"}}>
+                  <BrandLogoImg brand={b} size={32}/>
+                </div>
                 <span style={{fontSize:7.5,fontWeight:700,color:tok.dim,fontFamily:MH,textAlign:"center",letterSpacing:".08em",textTransform:"uppercase"}}>{b}</span>
               </div>
             );
