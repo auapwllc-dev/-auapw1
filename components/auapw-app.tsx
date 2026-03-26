@@ -23,15 +23,62 @@ const ADDRESS = "107 Myrtle Ave, Woodbine, NJ 08270";
 
 const MAKES = ["Acura","Alfa Romeo","Audi","BMW","Buick","Cadillac","Chevrolet","Chrysler","Dodge","Fiat","Ford","GMC","Genesis","Honda","Hummer","Hyundai","Infiniti","Isuzu","Jaguar","Jeep","Kia","Land Rover","Lexus","Lincoln","Mazda","Mercedes-Benz","Mercury","Mini","Mitsubishi","Nissan","Oldsmobile","Plymouth","Pontiac","Porsche","Ram","Saturn","Scion","Subaru","Suzuki","Tesla","Toyota","Volkswagen","Volvo"];
 
-function brandLogoPath(brand){
-  const slug=brand.toLowerCase().replace(/[\s]+/g,'-');
-  return "/logos/"+slug+".jpg";
-}
+const BRAND_LOGO_URLS={
+  "Acura":"https://www.carlogos.org/car-logos/acura-logo-2024.png",
+  "Alfa Romeo":"https://www.carlogos.org/car-logos/alfa-romeo-logo.png",
+  "Audi":"https://www.carlogos.org/car-logos/audi-logo.png",
+  "BMW":"https://www.carlogos.org/car-logos/bmw-logo.png",
+  "Bentley":"https://www.carlogos.org/car-logos/bentley-logo.png",
+  "Buick":"https://www.carlogos.org/car-logos/buick-logo.png",
+  "Cadillac":"https://www.carlogos.org/car-logos/cadillac-logo.png",
+  "Chevrolet":"https://www.carlogos.org/car-logos/chevrolet-logo.png",
+  "Chrysler":"https://www.carlogos.org/car-logos/chrysler-logo.png",
+  "Dodge":"https://www.carlogos.org/car-logos/dodge-logo.png",
+  "Ferrari":"https://www.carlogos.org/car-logos/ferrari-logo.png",
+  "Fiat":"https://www.carlogos.org/car-logos/fiat-logo.png",
+  "Ford":"https://www.carlogos.org/car-logos/ford-logo.png",
+  "GMC":"https://www.carlogos.org/car-logos/gmc-logo.png",
+  "Genesis":"https://www.carlogos.org/car-logos/genesis-logo.png",
+  "Honda":"https://www.carlogos.org/car-logos/honda-logo.png",
+  "Hummer":"https://www.carlogos.org/car-logos/hummer-logo.png",
+  "Hyundai":"https://www.carlogos.org/car-logos/hyundai-logo.png",
+  "Infiniti":"https://www.carlogos.org/car-logos/infiniti-logo.png",
+  "Isuzu":"https://www.carlogos.org/car-logos/isuzu-logo.png",
+  "Jaguar":"https://www.carlogos.org/car-logos/jaguar-logo.png",
+  "Jeep":"https://www.carlogos.org/car-logos/jeep-logo.png",
+  "Kia":"https://www.carlogos.org/car-logos/kia-logo.png",
+  "Lamborghini":"https://www.carlogos.org/car-logos/lamborghini-logo.png",
+  "Land Rover":"https://www.carlogos.org/car-logos/land-rover-logo.png",
+  "Lexus":"https://www.carlogos.org/car-logos/lexus-logo.png",
+  "Lincoln":"https://www.carlogos.org/car-logos/lincoln-logo.png",
+  "Maserati":"https://www.carlogos.org/car-logos/maserati-logo.png",
+  "Mazda":"https://www.carlogos.org/car-logos/mazda-logo.png",
+  "Mercedes-Benz":"https://www.carlogos.org/car-logos/mercedes-benz-logo.png",
+  "Mercury":"https://www.carlogos.org/car-logos/mercury-logo.png",
+  "Mini":"https://www.carlogos.org/car-logos/mini-logo.png",
+  "Mitsubishi":"https://www.carlogos.org/car-logos/mitsubishi-logo.png",
+  "Nissan":"https://www.carlogos.org/car-logos/nissan-logo.png",
+  "Oldsmobile":"https://www.carlogos.org/car-logos/oldsmobile-logo.png",
+  "Plymouth":"https://www.carlogos.org/car-logos/plymouth-logo.png",
+  "Pontiac":"https://www.carlogos.org/car-logos/pontiac-logo.png",
+  "Porsche":"https://www.carlogos.org/car-logos/porsche-logo.png",
+  "Ram":"https://www.carlogos.org/car-logos/ram-logo.png",
+  "Rolls-Royce":"https://www.carlogos.org/car-logos/rolls-royce-logo.png",
+  "Saturn":"https://www.carlogos.org/car-logos/saturn-logo.png",
+  "Scion":"https://www.carlogos.org/car-logos/scion-logo.png",
+  "Subaru":"https://www.carlogos.org/car-logos/subaru-logo.png",
+  "Suzuki":"https://www.carlogos.org/car-logos/suzuki-logo.png",
+  "Tesla":"https://www.carlogos.org/car-logos/tesla-logo.png",
+  "Toyota":"https://www.carlogos.org/car-logos/toyota-logo.png",
+  "Volkswagen":"https://www.carlogos.org/car-logos/volkswagen-logo.png",
+  "Volvo":"https://www.carlogos.org/car-logos/volvo-logo.png"
+};
 
 function BrandLogoImg({brand,size=40}){
   const [err,setErr]=React.useState(false);
-  if(err) return <span style={{fontSize:Math.max(size*0.35,10),fontWeight:900,color:"white",fontFamily:"Arial",letterSpacing:1}}>{brand.slice(0,3).toUpperCase()}</span>;
-  return <img src={brandLogoPath(brand)} alt={brand+" logo"} style={{width:size,height:size,objectFit:"contain",borderRadius:4}} onError={()=>setErr(true)} loading="lazy"/>;
+  const url=BRAND_LOGO_URLS[brand];
+  if(!url||err) return <span style={{fontSize:Math.max(size*0.35,10),fontWeight:900,color:"white",fontFamily:"Arial",letterSpacing:1}}>{brand.slice(0,3).toUpperCase()}</span>;
+  return <img src={url} alt={brand+" logo"} style={{width:size,height:size,objectFit:"contain"}} onError={()=>setErr(true)} crossOrigin="anonymous" loading="lazy"/>;
 }
 
 const STATES = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
