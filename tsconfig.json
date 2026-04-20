@@ -17,5 +17,5 @@
     "paths": { "@/*": ["./*"] }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.jsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "remixed-c3b6071c.tsx", "remixed-c3b6071c (1).tsx"]
 }
