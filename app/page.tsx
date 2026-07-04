@@ -1,5 +1,7 @@
-import AuapwApp from "@/components/auapw-app"
+"use client";
+
+import AuapwApp from "@/components/auapw-app";
 
 export default function Page() {
-  return <AuapwApp />
+  return <AuapwApp />;
 }
